@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html" />
+    <title>Todo List</title>
+    <!-- the jquery library -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="javascript/jquery-2.2.3.min.js"></script>
+    <!-- the knockout library -->
+    <script type="text/javascript" src="javascript/knockout-3.4.0.js"></script>
+    <!-- module for our application -->
+    <script type="text/javascript" src="javascript/todolist.js"></script>
+  </head>
+  <body>
+      <div class="container">
+          <div class="page-header"> <h1>Todo List</h1></div>
+          <div class="col-md-12">
+              Name <input type="text" data-bind="value: TodoList.task.name" />
+              Description <input type="text" data-bind="value: TodoList.task.description" />
+              <button class="btn btn-primary" data-bind="click: TodoList.addTask">Add</button>
+          </div>
+          <div class="col-md-12">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Description</th>
+                          <th>Actions</th>
+                      </tr>
+                  </thead>
+                  <tbody data-bind="foreach: TodoList.tasks">
+                      <tr>
+                          <td data-bind="text: name"></td>
+                          <td data-bind="text: description"></td>
+                          <td>
+                              <button class="btn btn-danger" data-bind="click: TodoList.deleteTask">
+                                  Delete
+                              </button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+  </body>
+</html>
